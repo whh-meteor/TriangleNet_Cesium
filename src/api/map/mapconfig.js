@@ -116,7 +116,7 @@ function updateMapInfo(viewer) {
 }
 
 function loadZoro(viewer) {
-  const outerCoreRadius = 6300000;
+  const outerCoreRadius = 6000000;
   viewer.entities.add({
     name: "OuterCore",
     id: "OuterCore",

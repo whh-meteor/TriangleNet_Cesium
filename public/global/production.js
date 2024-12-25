@@ -7,12 +7,12 @@
  * @argument SUB_TITLE 底部子系统名称
  */
 const production = {
-  TITLE: '智慧一张图',
-  TITLE_EN: 'NANHUANGHAI',
-  VISUALIZATION_ADDRESS: 'http://10.77.70.126/SEH5/viewMultiMainOcean.html',
-  MAP_ADDRESS: 'http://localhost:8182/satellite/',
-  Terrain_Address: 'http://localhost:8183/goal/',
-  SUB_TITLE: '青岛海洋地质研究所'
-}
+  TITLE: "智慧一张图",
+  TITLE_EN: "NANHUANGHAI",
+  VISUALIZATION_ADDRESS: "http://10.77.70.126/SEH5/viewMultiMainOcean.html",
+  MAP_ADDRESS: "http://localhost:8182/satellite/",
+  Terrain_Address: "http://localhost:8183/goal/",
+  SUB_TITLE: "测试系统",
+};
 
-export default production
+export default production;

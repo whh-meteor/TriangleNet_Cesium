@@ -17,7 +17,7 @@ import MapConfig from "@/api/map/mapconfig.js";
 import "@/assets/style/compass.css";
 // import FixedChosen from "./tools/fixed-chosen.vue";
 import Fault from "@/api/map/fault.js";
-
+import MapTri from "./map";
 export default {
   name: "CesiumViewer",
   data() {
@@ -41,6 +41,9 @@ export default {
     this.init();
     window.$supervise = this;
     this.awaitViewer = true;
+
+    // test
+    MapTri.Map();
   },
   methods: {
     isShowGeoLayers(bool) {

@@ -7,14 +7,14 @@
  * @argument SUB_TITLE 底部子系统名称
  */
 const dev = {
-  TITLE: '智慧一张图',
-  TITLE_EN: 'NANHUANGHAI',
-  VISUALIZATION_ADDRESS: 'http://10.77.70.126/SEH5/viewMultiMainOcean.html',
+  TITLE: "智慧一张图",
+  TITLE_EN: "NANHUANGHAI",
+  VISUALIZATION_ADDRESS: "http://10.77.70.126/SEH5/viewMultiMainOcean.html",
   MAP_ADDRESS:
-    'http://192.168.2.201:1996/gisAssistant/wmts/grid_tile/esri/satellite_202211/{z}/{y}/{x}',
+    "http://192.168.2.201:1996/gisAssistant/wmts/grid_tile/esri/satellite_202211/{z}/{y}/{x}",
   Terrain_Address:
-    'http://inner.qdlimap.cn:7001/GisServer/NanHuangHai/globeterrain/',
-  SUB_TITLE: '青岛海洋地质研究所'
-}
+    "http://inner.qdlimap.cn:7001/GisServer/NanHuangHai/globeterrain/",
+  SUB_TITLE: "测试系统",
+};
 
-export default dev
+export default dev;
