@@ -1,0 +1,592 @@
+/* 退场动画 */
+.v-enter,
+.v-leave-to {
+  opacity: 0;
+  /*透明度*/
+  transform: translateX(-22.2vw);
+}
+
+/*入场(离场)动画的时间段   */
+.v-enter-active,
+.v-leave-active {
+  transition: all 0.8s ease;
+}
+
+::v-deep .con-item-header .el-checkbox__label {
+  font-weight: bold;
+  font-size: 20px;
+  @include respond(large) {
+    font-size: 28px;
+  }
+}
+::v-deep .el-checkbox__label {
+
+  font-size: 16px;
+  // @include text-overflow;
+  @include respond(large) {
+    font-size: 24px;
+  }
+}
+
+::v-deep .select-first .el-input__inner {
+  height: 33px;
+  font-size: 16px;
+  background-color: transparent;
+  border: 1px solid #02a4ff;
+  font-family: $font-family-cn;
+  font-weight: bolder;
+  color: #91d2f7;
+
+  &::placeholder {
+    color: rgba(225, 240, 254, 0.6);
+    font-weight: 400;
+  }
+  @include respond(large) {
+    height: 48px;
+    font-size: 24px;
+  }
+}
+
+::v-deep .select-first .el-input__icon {
+  line-height: normal;
+}
+
+.research {
+  position: fixed;
+  left: 3.02%;
+  top: 8.15%;
+  cursor: pointer;
+  pointer-events: all;
+  z-index: 100;
+  transition: all 0.8s;
+  @include respond(large) {
+    left: 78px;
+    top: 132px;
+  }
+
+  &-show {
+    transition: all 0.5s ease;
+  }
+
+  &-hidden {
+    opacity: 0;
+  }
+
+  .global {
+    width: 20px;
+    height: 20px;
+    @include image-tool("chosen-fold");
+
+    @include respond(large) {
+      width: 30px;
+      height: 30px;
+    }
+
+    &-con {
+      padding-bottom: 10px;
+    }
+
+    &-text {
+      width: 23%;
+      font-family: $font-family-cn;
+      font-weight: 500;
+      font-size: 14px;
+      color: #ffffff;
+      line-height: 24px;
+      background: #1d7dec;
+      border-radius: 20px;
+      position: relative;
+
+      @include respond(large) {
+        width: 15%;
+        font-size: 18px;
+        border-radius: 30px;
+        line-height: 30px;
+      }
+
+      &::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        @include image-tool("chosen-fold");
+        left: 0;
+        top: 2px;
+        transform: rotate(180deg);
+
+        @include respond(large) {
+          width: 30px;
+          height: 30px;
+          top: 0px;
+        }
+      }
+
+      .text {
+        position: relative;
+        left: 7px;
+      }
+    }
+  }
+
+  .header {
+    display: flex;
+  }
+
+  &-content {
+    $head-text-left: -71px;
+
+    .head {
+      display: flex;
+      font-family: $font-family-cn;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      color: #fff;
+
+      &-item {
+        width: 192px;
+        height: 34px;
+
+        position: relative;
+        @include image-tool("fix-title-unchosen");
+        @include flex-center;
+
+        @include respond(large) {
+          width: 285px;
+          height: 50px;
+          font-size: 24px;
+        }
+
+        &-chosen {
+          z-index: 10;
+          @include image-tool("fix-title");
+
+          &-sec {
+            @include image-tool("fix-title-sec");
+          }
+        }
+
+        &-sec {
+          left: $head-text-left;
+
+          @include respond(large) {
+            left: -108px;
+          }
+        }
+      }
+
+      &-text {
+        position: relative;
+        left: calc($head-text-left/2);
+
+        @include respond(large) {
+          left: calc(-108px / 2);
+        }
+      }
+    }
+
+    .container {
+      width: 420px;
+      height: 78vh;
+
+      background: linear-gradient(
+        180deg,
+        rgba(33, 133, 232, 0.09) 0%,
+        rgba(36, 127, 236, 0.05) 48%,
+        rgba(31, 127, 223, 0.03) 70%,
+        rgba(51, 153, 255, 0.02) 87%,
+        rgba(0, 170, 255, 0.01) 100%
+      );
+      border-radius: 0px 5px 5px 5px;
+      border: 1px solid;
+      border-image: linear-gradient(
+          180deg,
+          rgba(41, 114, 213, 1),
+          rgba(6, 77, 129, 1)
+        )
+        1 1;
+      position: relative;
+
+      @include respond(large) {
+        width: 800px;
+      }
+    }
+
+    .con {
+      width: 420px;
+      /*   height: 100%; */
+      height: 76vh;
+      padding: 11px 0px 10px 20px;
+      //   padding-right: 27px;
+      text-align: left;
+      position: absolute;
+
+      overflow-y: auto;
+
+      @include respond(large) {
+        width: 820px;
+        height: inherit;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+      }
+
+      &-item {
+        display: block;
+
+        &-header {
+          display: flex;
+          align-items: center;
+          padding-top: 10px;
+          @include respond(large) {
+            padding-top: 24px;
+          }
+          &-first {
+            padding-top: 0;
+          }
+
+          .con-item-right {
+            display: flex;
+            /* margin-left: 8px; */
+            margin-bottom: 8px;
+
+            .select-first {
+              width: 110px;
+
+              &:first-child {
+                margin-right: 4px;
+              }
+            }
+          }
+
+          .img {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            @include respond(large) {
+              width: 40px;
+              height: 40px;
+            }
+            @include image-tool("chosen-title");
+          }
+        }
+
+        .children-con {
+          width: 97%;
+          display: flex;
+          flex-wrap: wrap;
+          padding: 10px 0 0;
+
+          @include respond(large) {
+            width: 100%;
+            padding: calc(32px - 8px) 0 calc(24px - 8px) 30px;
+          }
+
+          &-sub {
+            background: rgba(9, 46, 102, 0.8);
+            border-radius: 5px;
+            border: 1px solid #3889ff;
+            margin-top: 7px;
+            padding: 0;
+            padding-left: 10px;
+            width: 90%;
+            margin-bottom: 7px;
+          }
+        }
+
+        &-children {
+          display: flex;
+          align-items: center;
+          position: relative;
+          margin-right: 16px;
+          padding: 8px 0;
+          .child-header {
+            display: flex;
+            align-items: center;
+          }
+          @include respond(large) {
+            padding-bottom: 24px;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.chart {
+  position: fixed;
+  right: 7.02%;
+  top: 18.15%;
+  cursor: pointer;
+  pointer-events: all;
+  z-index: 100;
+
+  @include respond(large) {
+    left: 78px;
+    top: 132px;
+  }
+
+  &-show {
+    transition: all 0.5s ease;
+  }
+
+  &-hidden {
+    opacity: 0;
+  }
+
+  .global {
+    width: 20px;
+    height: 20px;
+    @include image-tool("chosen-fold");
+
+    @include respond(large) {
+      width: 30px;
+      height: 30px;
+    }
+
+    &-con {
+      padding-bottom: 10px;
+    }
+
+    &-text {
+      width: 20%;
+      font-family: $font-family-cn;
+      font-weight: 500;
+      font-size: 14px;
+      color: #ffffff;
+      line-height: 24px;
+      background: #1d7dec;
+      border-radius: 20px;
+      position: relative;
+
+      @include respond(large) {
+        width: 15%;
+        font-size: 18px;
+        border-radius: 30px;
+        line-height: 30px;
+      }
+
+      &::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        @include image-tool("chosen-fold");
+        left: 0;
+        top: 2px;
+        transform: rotate(180deg);
+
+        @include respond(large) {
+          width: 30px;
+          height: 30px;
+          top: 0px;
+        }
+      }
+
+      .text {
+        position: relative;
+        left: 7px;
+      }
+    }
+  }
+
+  .header {
+    display: flex;
+  }
+
+  &-content {
+    $head-text-left: -71px;
+
+    .head {
+      display: flex;
+      flex-wrap: wrap;
+      /* 允许子元素换行 */
+      font-family: $font-family-cn;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      color: #fff;
+
+      &-item {
+        flex: 1 1 130px;
+        /* 自动调整宽度，最小宽度130px */
+        height: 34px;
+        position: relative;
+        @include image-tool("fix-title-unchosen");
+        @include flex-center;
+
+        @include respond(large) {
+          flex: 1 1 285px;
+          /* 在大屏幕上，宽度最大为285px */
+          height: 50px;
+          font-size: 24px;
+        }
+
+        &-chosen {
+          z-index: 10;
+          @include image-tool("fix-title");
+
+          &-sec {
+            @include image-tool("fix-title-sec");
+          }
+        }
+
+        &-sec {
+          left: $head-text-left;
+
+          @include respond(large) {
+            left: -108px;
+          }
+        }
+      }
+
+      &-text {
+        position: relative;
+        left: calc($head-text-left / 2);
+
+        @include respond(large) {
+          left: calc(-108px / 2);
+        }
+      }
+    }
+
+    .container {
+      width: 420px;
+      height: 78vh;
+      background: linear-gradient(
+        180deg,
+        rgba(33, 133, 232, 0.09) 0%,
+        rgba(36, 127, 236, 0.05) 48%,
+        rgba(31, 127, 223, 0.03) 70%,
+        rgba(51, 153, 255, 0.02) 87%,
+        rgba(0, 170, 255, 0.01) 100%
+      );
+      border-radius: 0px 5px 5px 5px;
+      border: 1px solid;
+      border-image: linear-gradient(
+          180deg,
+          rgba(41, 114, 213, 1),
+          rgba(6, 77, 129, 1)
+        )
+        1 1;
+      position: relative;
+      right: 0;
+
+      @include respond(large) {
+        width: 800px;
+      }
+    }
+
+    .con {
+      width: 200px;
+      height: 50vh;
+      padding: 11px 7px 10px 20px;
+      padding-right: 27px;
+      text-align: left;
+      position: absolute;
+      overflow-y: auto;
+
+      @include respond(large) {
+        width: 800px;
+        height: inherit;
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      &-item {
+        display: block;
+
+        &-header {
+          .img {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+
+            @include image-tool("chosen-title");
+          }
+        }
+
+        .children-con {
+          width: 97%;
+          display: flex;
+          flex-wrap: wrap;
+          padding: 10px 0 0;
+
+          @include respond(large) {
+            width: 100%;
+            padding: calc(32px - 8px) 0 calc(24px - 8px) 30px;
+          }
+
+          &-sub {
+            background: rgba(9, 46, 102, 0.8);
+            border-radius: 5px;
+            border: 1px solid #3889ff;
+            margin-top: 7px;
+            padding: 0;
+            padding-left: 10px;
+            width: 90%;
+            margin-bottom: 7px;
+          }
+        }
+
+        &-children {
+          // display: flex;
+          margin-right: 16px;
+          padding: 8px 0;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+.checkbox-button {
+  // position: absolute;
+  display: inline-block;
+  width: fit-content;
+  padding: 4px;
+  background: rgba(38, 114, 251, 0.3);
+  border-radius: 2px 2px 2px 2px;
+  border: 1px solid #02a4ff;
+  color: #91d2f7;
+  font-size: 16px;
+  margin-left: 4px;
+  @include respond(large) {
+    font-size: 24px;
+    padding: 6px;
+  }
+}
+.checkbox-button-icon {
+  width: 26px;
+  height: 26px;
+  @include image-tool("imgsmall-icon");
+  @include respond(large) {
+    width: 38px;
+    height: 38px;
+  }
+}
+::v-deep .child-header .el-checkbox__inner{
+  display: none;
+}
+.span-width{
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  /* line-height: inherit; */
+  vertical-align: bottom;
+}
+.bolder{
+  font-weight:bolder;
+  font-style: oblique 80deg;
+  // color:#01a2ff;
+  // font-family: $font-family-title-cn;
+}
+

@@ -1,0 +1,119 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  &{
+    align-items: center;
+  }
+  
+}
+
+.manage-row-use {
+  width: 100%;
+}
+
+@mixin dialog-title-font {
+  line-height: 24px;
+  font-size: 18px;
+  color: #303133;
+}
+
+$breakpoints: (
+  large: 3840px,
+);
+
+@mixin respond($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media only screen and (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "No value found for breakpoint: #{$breakpoint}.";
+  }
+}
+
+@mixin image-home($name) {
+  background-image: url("~@/assets/image/home/#{$name}.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
+}
+
+@mixin image-tool($name) {
+  &{
+    background-image: url('~@/assets/image/mapbase/#{$name}.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+ 
+}
+
+@mixin scroll-bar($width) {
+  ::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+    background: rgba(7, 39, 83, 0.4);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(7, 39, 83, 0.4);
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(7, 78, 187, 1);
+    border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: rgba(7, 39, 83, 0.4);
+  }
+}
+
+@mixin text-background {
+  -webkit-background-clip: text;
+  /*将设置的背景颜色限制在文字中*/
+  -webkit-text-fill-color: transparent;
+}
+@mixin text-overflow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin checkbox-mixin {
+  ::v-deep .el-checkbox {
+    margin-right: 4px;
+    @include respond(large){
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+
+    }
+  }
+  ::v-deep .el-checkbox__inner {
+    background: rgba(38, 114, 251, 0.3);
+    border-radius: 2px 2px 2px 2px;
+    border: 1px solid #02a4ff;
+    @include respond(large) {
+      zoom: calc(20 / 14);
+    }
+  }
+
+  ::v-deep .el-checkbox__label {
+    font-family: $font-family-cn;
+    padding-left: 8px;
+    color: #91D2F7;
+
+    @include respond(large) {
+      font-size: 24px;
+      line-height: 28px;
+      padding-left: 8px;
+    }
+  }
+  ::v-deep .el-checkbox__input.is-checked+.el-checkbox__label{
+    color:#fff;
+  }
+}
+
+
+
